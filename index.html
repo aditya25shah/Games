@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcade Studio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-mark">A</span>
+        <div>
+          <p class="section-kicker">Arcade Studio</p>
+          <h1>Arcade Studio</h1>
+        </div>
+      </div>
+
+      <nav class="top-nav" aria-label="Studio metadata">
+        <span class="meta-badge">4 Games</span>
+        <span class="meta-badge">Frontend Only</span>
+        <span class="meta-badge">HTML CSS JS</span>
+      </nav>
+
+      <div class="account-area">
+        <button id="accountToggle" type="button" class="account-chip">
+          <div class="account-copy">
+            <p class="section-kicker">Guest Session</p>
+            <strong id="accountTitle">Guest Session</strong>
+          </div>
+          <span id="authState" class="sign-in-pill">Sign In</span>
+        </button>
+
+        <div id="authFlyout" class="auth-flyout">
+          <div class="auth-header">
+            <div>
+              <p class="section-kicker">Account</p>
+              <h2>Save progress</h2>
+            </div>
+            <span id="oauthStatus" class="meta-badge">Checking Google</span>
+          </div>
+
+          <p id="authSummary" class="auth-summary">
+            Sign in to save game history and keep your best scores across sessions.
+          </p>
+
+          <button id="googleAuth" type="button" class="oauth-button">
+            <span class="oauth-mark">G</span>
+            <span>Continue with Google</span>
+          </button>
+          <p id="oauthHelp" class="oauth-help">Use Google for one-click account setup and synced score storage.</p>
+
+          <form id="authForm" class="auth-form">
+            <label>
+              <span>Name</span>
+              <input id="authName" type="text" placeholder="Your name" autocomplete="name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input id="authEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input id="authPassword" type="password" placeholder="Password" autocomplete="current-password" />
+            </label>
+            <div class="auth-actions">
+              <button type="submit" data-mode="login" class="action-button primary">Login</button>
+              <button type="submit" data-mode="register" class="action-button secondary">Register</button>
+            </div>
+          </form>
+
+          <button id="logoutButton" type="button" class="action-button reset-link">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <aside class="catalog panel">
+        <div class="section-heading">
+          <p class="section-kicker">Game Library</p>
+          <h2>Select a game</h2>
+        </div>
+        <div class="game-list" id="gameList"></div>
+      </aside>
+
+      <section class="workspace">
+        <div class="workspace-top panel">
+          <div class="workspace-copyblock">
+            <p class="section-kicker">Live Session</p>
+            <h2 id="activeGameName">Tetris</h2>
+            <p id="activeGameDescription" class="workspace-copy"></p>
+            <div class="badge-row">
+              <span id="activeGameTag" class="info-badge">Logic</span>
+              <span id="activeGameDifficulty" class="info-badge tone-warm">Medium</span>
+              <span id="activeGameMode" class="info-badge">Interactive board</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="startButton" class="action-button primary">Start</button>
+            <button id="pauseButton" class="action-button secondary">Pause</button>
+            <button id="resetButton" class="action-button reset-link">Reset</button>
+          </div>
+        </div>
+
+        <div class="stage panel">
+          <div class="stage-layout">
+            <div class="canvas-shell" id="canvasShell" data-session-state="ready">
+              <div class="canvas-header">
+                <p class="section-kicker">Playfield</p>
+                <span id="canvasStateLabel" class="state-badge">Press Start</span>
+              </div>
+              <div id="canvasOverlay" class="canvas-overlay">Press Start</div>
+              <canvas id="gameCanvas" width="640" height="720"></canvas>
+            </div>
+
+            <aside class="hud-panel">
+              <div class="hud-block">
+                <p class="section-kicker">Session Status</p>
+                <div id="statusText" class="status-note">Choose a game and press Start.</div>
+              </div>
+
+              <div class="hud-block">
+                <p class="section-kicker">Performance</p>
+                <div class="hud-metric">
+                  <span>Score</span>
+                  <strong id="hudScore">0</strong>
+                </div>
+                <div class="hud-metric">
+                  <span>Level</span>
+                  <strong id="hudLevel">1</strong>
+                </div>
+                <div class="hud-metric">
+                  <span>Lines</span>
+                  <strong id="hudLines">0</strong>
+                </div>
+                <div class="hud-preview">
+                  <span>Next Piece</span>
+                  <div id="nextPiecePreview" class="next-piece-preview">-</div>
+                </div>
+              </div>
+
+              <div class="hud-block">
+                <p class="section-kicker">Controls</p>
+                <ul id="controlsList" class="controls-list"></ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

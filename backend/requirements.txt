@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+authlib
+itsdangerous
+pydantic
+email-validator
+python-dotenv
